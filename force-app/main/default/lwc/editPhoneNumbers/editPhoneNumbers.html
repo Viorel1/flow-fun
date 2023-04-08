@@ -1,0 +1,12 @@
+<template>
+    <lightning-card title="Edit Phone Numbers">
+        <template for:each={phoneNumbers} for:item="phoneNumber">
+            <div key={phoneNumber.id}>
+                <lightning-input type="tel" label={phoneNumber.label} value={phoneNumber.value} onchange={handleInputChange} required></lightning-input>
+            </div>
+        </template>
+        <div class="slds-m-top_medium">
+            <lightning-button label="Save" variant="brand" onclick={handleSave}></lightning-button>
+        </div>
+    </lightning-card>
+</template>
