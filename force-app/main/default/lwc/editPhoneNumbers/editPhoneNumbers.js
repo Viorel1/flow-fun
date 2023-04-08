@@ -39,28 +39,4 @@ export default class EditPhoneNumbers extends LightningElement {
         if (!phoneNumber) return;
 
         let isValid = this.validatePhoneNumber(input.value);
-        let isDuplicate = this.phoneNumbers.some(p => p.id !== input.label && p.value === input.value);
-        input.setCustomValidity(isDuplicate ? 'Duplicate phone number' : isValid ? '' : 'Invalid phone number format');
-        input.reportValidity();
-
-        if (isValid && !isDuplicate) {
-            phoneNumber.value = input.value;
-        }
-    }
-
-    handleSave() {
-        // Save phone numbers to the account record
-        let fields = [];
-        for (let phoneNumber of this.phoneNumbers) {
-            fields.push({ fieldApiName: phoneNumber.id, value: phoneNumber.value });
-        }
-        let recordInput = { fields: fields, apiName: 'Account', Id: this.accountId };
-        this.dispatchEvent(new CustomEvent('save', { detail: recordInput }));
-    }
-
-    validatePhoneNumber(phoneNumber) {
-        // Validate the phone number format
-        let pattern = /^\+(?:[0-9] ?){6,14}[0-9]$/;
-        return pattern.test(phoneNumber);
-    }
-}
+        let isDuplicate = this.phoneNumbers.some(p => p.id !== input.label && p.value === input.value
