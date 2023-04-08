@@ -39,4 +39,5 @@ export default class EditPhoneNumbers extends LightningElement {
         if (!phoneNumber) return;
 
         let isValid = this.validatePhoneNumber(input.value);
-        let isDuplicate = this.phoneNumbers.some(p => p.id !== input.label && p.value === input.value
+        let isDuplicate = this.phoneNumbers.some(p => p.id !== input.label && p.value === input.value)
+        }}
